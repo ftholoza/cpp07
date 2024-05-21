@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:02:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/17 20:21:20 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:59:30 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ Array<T>::Array(Array &to_copy)
 
 	i = 0;
 	if (to_copy.lenght != 0)
+	{
 		this->array = new	T[to_copy.lenght];
+		this->alloc = true;
+	}
 	while (i < to_copy.lenght)
 	{
 		this->array[i] = to_copy.array[i];
