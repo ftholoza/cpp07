@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:02:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/21 10:59:30 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/28 20:13:53 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class	Array
 
 		Array<T> &operator=(Array<T> &to_copy);
 		T	&operator[](unsigned int pos);
+		T	&operator[](unsigned int pos) const;
 		size_t	size(void);
 		class OutOfBandsException : public std::exception
         {

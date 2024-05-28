@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:48:30 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/17 15:56:41 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/28 21:01:35 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,29 @@
 
 # include <iostream>
 
-template<typename T, typename R>
+template<typename T>
 
-void	iter(T *array, size_t size, R (*function)(T value))
+void	iter(T *array, size_t size, void (*function)(const T &))
 {
 	int	i;
 
 	i = 0;
-	while (array[i] && i < size)
+	while (i < size)
+	{
+		function(array[i]);
+		i++;
+	}
+	return ;	
+}
+
+template<typename T>
+
+void	iter(T *array, size_t size, void (*function)(T &))
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
 	{
 		function(array[i]);
 		i++;

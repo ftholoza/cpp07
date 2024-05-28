@@ -6,14 +6,14 @@
 #    By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 07:04:09 by francesco         #+#    #+#              #
-#    Updated: 2024/05/17 15:08:34 by ftholoza         ###   ########.fr        #
+#    Updated: 2024/05/28 20:16:32 by ftholoza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
-SRC = main.cpp
+SRC = main2.cpp
 OBJ = $(SRC:.cpp=.o)
 NAME = ex01
 

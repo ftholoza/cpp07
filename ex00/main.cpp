@@ -6,16 +6,32 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:30:07 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/17 14:34:46 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:55:26 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Templates.hpp"
 
+class Awesome
+{
+private:
+	int	n;
+public:
+	Awesome()
+	{
+		std::cout << "constructor" << std::endl; 
+	}
+	~Awesome()
+	{
+		std::cout << "destructor" << std::endl;
+	}
+};
+
 int main( void ) 
 {
 	int a = 2;
 	int b = 3;
+	
 	::swap( a, b );
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
