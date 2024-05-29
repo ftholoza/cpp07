@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:44:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/21 11:03:15 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/29 16:29:06 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
+    /*int* temp = new int[4]();
+    for (int i = 0; i < 4; i++)
+        std::cout << temp[i] << std::endl;
+    delete [] temp;*/
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -48,19 +52,14 @@ int main(int, char**)
 		std::cout << "nbrs: " << numbers[i] << " " ;
 		std::cout << "mirror: " << mirror[i] << std::endl;
     }
-    //SCOPE
-    {
-		//std::cout << "ok" << std::endl;
-        Array<int> tmp = numbers;
-		//std::cout << "ok" << std::endl;
-        Array<int> test(tmp);
-    }
-	//std::cout << "here" << std::endl;
+    Array<int> tmp = numbers;
+    Array<int> test(tmp);
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
+            delete [] mirror;
             return 1;
         }
     }
@@ -80,11 +79,10 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

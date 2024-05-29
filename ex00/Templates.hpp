@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Templates.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:25:57 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 02:10:17 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/29 14:35:13 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 template<typename T>
 
-void	swap(T &first, T &second)
+void	swap(T &first,T &second)
 {
 	T	temp;
 
@@ -30,7 +30,7 @@ void	swap(T &first, T &second)
 
 template<typename T>
 
-T	min(T first, T second)
+T	min(const T &first, const T &second)
 {
 	if (first < second)
 		return (first);
@@ -40,7 +40,7 @@ T	min(T first, T second)
 
 template<typename T>
 
-T	max(T first, T second)
+T	max(T &first, T &second)
 {
 	if (first > second)
 		return (first);

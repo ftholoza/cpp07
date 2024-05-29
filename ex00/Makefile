@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: francesco <francesco@student.42.fr>        +#+  +:+       +#+         #
+#    By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 07:04:09 by francesco         #+#    #+#              #
-#    Updated: 2024/05/29 02:25:08 by francesco        ###   ########.fr        #
+#    Updated: 2024/05/29 14:43:39 by ftholoza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
