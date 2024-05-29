@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:48:30 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/28 21:01:35 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 02:44:54 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 
 template<typename T>
 
-void	iter(T *array, size_t size, void (*function)(const T &))
+void	iter(T *array, size_t size, void (*function)(const T&))
 {
-	int	i;
+	int	i = 0;
 
-	i = 0;
+	if (array == NULL || function == NULL)
+		return ;
 	while (i < size)
 	{
 		function(array[i]);
@@ -32,11 +33,12 @@ void	iter(T *array, size_t size, void (*function)(const T &))
 
 template<typename T>
 
-void	iter(T *array, size_t size, void (*function)(T &))
+void	iter(T *array, size_t size, void (*function)(T&))
 {
-	int	i;
+	int	i = 0;
 
-	i = 0;
+	if (array == NULL || function == NULL)
+		return ;	
 	while (i < size)
 	{
 		function(array[i]);
