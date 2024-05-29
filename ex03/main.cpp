@@ -6,11 +6,13 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:44:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 16:29:06 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:10:54 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+#include "time.h"
+#include "cstdlib"
 
 /*int	main(void)
 {
@@ -39,10 +41,6 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
-    /*int* temp = new int[4]();
-    for (int i = 0; i < 4; i++)
-        std::cout << temp[i] << std::endl;
-    delete [] temp;*/
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -86,3 +84,4 @@ int main(int, char**)
     delete [] mirror;
     return 0;
 }
+

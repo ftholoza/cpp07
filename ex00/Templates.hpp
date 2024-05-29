@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:25:57 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 14:35:13 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 18:59:44 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ T	min(const T &first, const T &second)
 
 template<typename T>
 
-T	max(T &first, T &second)
+T	max(const T &first, const T &second)
 {
 	if (first > second)
 		return (first);

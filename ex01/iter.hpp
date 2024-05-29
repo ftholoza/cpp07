@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:48:30 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 15:17:14 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:05:40 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,20 @@
 # include <iostream>
 # include <string>
 
-template<typename T>
+template<typename T, typename F>
 
-void	iter(T *array, size_t size, void (*function)(const T&))
+void	iter(T *array, size_t size, F f)
 {
-	int	i = 0;
+	size_t	i = 0;
 
-	if (array == NULL || function == NULL)
+	if (array == NULL || f == NULL)
 	{
 		std::cout << "\033[1;31mError: null param\033[0m" << std::endl;
 		return ;
 	}
 	while (i < size)
 	{
-		function(array[i]);
-		i++;
-	}
-	return ;	
-}
-
-template<typename T>
-
-void	iter(T *array, size_t size, void (*function)(T&))
-{
-	int	i = 0;
-
-	if (array == NULL || function == NULL)
-	{
-		std::cout << "\033[1;31mError: null param\033[0m" << std::endl;
-		return ;
-	}
-	while (i < size)
-	{
-		function(array[i]);
+		f(array[i]);
 		i++;
 	}
 	return ;	

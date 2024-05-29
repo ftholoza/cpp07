@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:02:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 16:25:28 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:13:07 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Array
 		~Array();
 
 		Array<T> &operator=(Array<T> &to_copy);
-		T	&operator[](const unsigned int pos);
+		T	&operator[](const unsigned int pos) const;
 		size_t	size(void) const;
 		class OutOfBandsException : public std::exception
         {
@@ -54,7 +54,7 @@ Array<T>::Array(unsigned int size)
 	std::cout << "\033[1;32mARRAY CONSTRUCTOR\033[0m" << std::endl;
 	if (size == 0)
 	{
-		this->array = NULL;
+		this->array = new T[0]();
 		this->lenght = 0;
 	}
 	try
@@ -91,7 +91,7 @@ Array<T>::Array(Array &to_copy)
 		try
 		{
 			this->array = new	T[to_copy.lenght]();
-			for (int i = 0; i < to_copy.lenght; i++)
+			for (size_t i = 0; i < to_copy.lenght; i++)
 				this->array[i] = to_copy.array[i];
 			this->lenght = to_copy.lenght;	
 			return ;
@@ -105,7 +105,7 @@ Array<T>::Array(Array &to_copy)
 		}
 	}
 	this->lenght = 0;
-	this->array = NULL;
+	this->array = new T[0]();
 	return ;
 }
 
@@ -120,7 +120,7 @@ Array<T>& Array<T>::operator=(Array<T> &to_copy)
 		try
 		{
 			this->array = new T[to_copy.lenght]();
-			for (int i = 0; i < to_copy.lenght; i++)
+			for (size_t i = 0; i < to_copy.lenght; i++)
 				this->array[i] = to_copy.array[i];
 			this->lenght = to_copy.lenght;
 			return (*this);
@@ -133,14 +133,14 @@ Array<T>& Array<T>::operator=(Array<T> &to_copy)
 			return (*this);
 		}
 	}
-	this->array = NULL;
+	this->array = new T[0]();
 	this->lenght = 0;
 	return (*this);
 }
 
 template<typename T>
 
-T	&Array<T>::operator[](unsigned int pos)
+T	&Array<T>::operator[](unsigned int pos) const
 {
 	if (pos >= this->lenght)
 		throw OutOfBandsException();
