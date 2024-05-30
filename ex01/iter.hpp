@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:48:30 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 19:05:40 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:04:49 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,13 @@ template<typename T, typename F>
 
 void	iter(T *array, size_t size, F f)
 {
-	size_t	i = 0;
-
 	if (array == NULL || f == NULL)
 	{
 		std::cout << "\033[1;31mError: null param\033[0m" << std::endl;
 		return ;
 	}
-	while (i < size)
-	{
-		f(array[i]);
-		i++;
-	}
+	for (size_t i = 0; i < size; i++)
+		f (array[i]);
 	return ;	
 }
 

@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:44:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 19:10:54 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:18:44 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
+    Array<int> empty(0);
+    Array<int> empty2(empty);
+    Array<int> empty3 = empty2;
+    std::cout << empty2.size() << std::endl;
+    std::cout << empty.size() << std::endl;
+    std::cout << empty3.size() << std::endl;
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
@@ -47,20 +53,19 @@ int main(int, char**)
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
-		std::cout << "nbrs: " << numbers[i] << " " ;
-		std::cout << "mirror: " << mirror[i] << std::endl;
     }
     Array<int> tmp = numbers;
     Array<int> test(tmp);
     for (int i = 0; i < MAX_VAL; i++)
     {
-        if (mirror[i] != numbers[i])
+        if ((mirror[i] != tmp[i]) || (test[i] != mirror[i]) || (numbers[i] != mirror[i]))
         {
             std::cerr << "didn't save the same value!!" << std::endl;
             delete [] mirror;
             return 1;
         }
     }
+    std::cout << "GOOD" << std::endl;
     try
     {
         numbers[-2] = 0;

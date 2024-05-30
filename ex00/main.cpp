@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:30:07 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 14:42:07 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:54:43 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main( void )
 	bool	e = true;
 	bool	f = false;
 	std::cout << "swap bool e: " << e << " bool f: " << f << std::endl;
-	::swap(c, d);
+	::swap(e, f);
 	std::cout << "e = " << e << ", f = " << f << std::endl;
 	std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
 	std::cout << "max( e, f ) = " << ::max( e, f ) << std::endl << std::endl;

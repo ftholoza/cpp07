@@ -35,6 +35,7 @@ int main() {
   char  str[] = { 'c', 'i', 'a', 'o'};
   bool  bol[] = { true, false, true, false};
   Awesome tab2[5];
+  const int ctab[] = {9, 8, 7, 6, 5};
   int *null = NULL;
   void (*pt)(int &) = NULL;
 
@@ -48,7 +49,8 @@ int main() {
   iter( str, 4, print<char> );
   std::cout << std::endl;
   iter( bol, 4, print<bool> );
-
+  std::cout << std::endl;
+  iter(ctab, 5, print<const int>);
   iter(null, 5, print<int>);
   iter(tab, 5, pt);
 

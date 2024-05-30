@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:02:51 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/29 19:13:07 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:13:05 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ template<typename T>
 Array<T>::Array(unsigned int size)
 {
 	std::cout << "\033[1;32mARRAY CONSTRUCTOR\033[0m" << std::endl;
-	if (size == 0)
-	{
-		this->array = new T[0]();
-		this->lenght = 0;
-	}
 	try
 	{
 		this->array = new T[size]();
@@ -86,27 +81,21 @@ template<typename T>
 Array<T>::Array(Array &to_copy)
 {
 	std::cout << "\033[1;32mARRAY COPY CONSTRUCTOR\033[0m" << std::endl;
-	if (to_copy.lenght != 0)
+	try
 	{
-		try
-		{
-			this->array = new	T[to_copy.lenght]();
-			for (size_t i = 0; i < to_copy.lenght; i++)
-				this->array[i] = to_copy.array[i];
-			this->lenght = to_copy.lenght;	
-			return ;
-		}
-		catch (std::bad_alloc &e)
-		{
-			std::cerr << "\033[1;31mError: MALLOC\033[0m" << std::endl;
-			this->lenght = 0;
-			this->array = NULL;
-			return ;
-		}
+		this->array = new	T[to_copy.lenght]();
+		for (size_t i = 0; i < to_copy.lenght; i++)
+			this->array[i] = to_copy.array[i];
+		this->lenght = to_copy.lenght;	
+		return ;
 	}
-	this->lenght = 0;
-	this->array = new T[0]();
-	return ;
+	catch (std::bad_alloc &e)
+	{
+		std::cerr << "\033[1;31mError: MALLOC\033[0m" << std::endl;
+		this->lenght = 0;
+		this->array = NULL;
+		return ;
+	}
 }
 
 template<typename T>
@@ -115,27 +104,21 @@ Array<T>& Array<T>::operator=(Array<T> &to_copy)
 {
 	if (this->array != NULL)
 		delete [] this->array;
-	if (to_copy.lenght != 0)
+	try
 	{
-		try
-		{
-			this->array = new T[to_copy.lenght]();
-			for (size_t i = 0; i < to_copy.lenght; i++)
-				this->array[i] = to_copy.array[i];
-			this->lenght = to_copy.lenght;
-			return (*this);
-		}
-		catch (std::bad_alloc &e)
-		{
-			std::cerr << "\033[1;31mError: MALLOC\033[0m" << std::endl;
-			this->array = NULL;
-			this->lenght = 0;
-			return (*this);
-		}
+		this->array = new T[to_copy.lenght]();
+		for (size_t i = 0; i < to_copy.lenght; i++)
+			this->array[i] = to_copy.array[i];
+		this->lenght = to_copy.lenght;
+		return (*this);
 	}
-	this->array = new T[0]();
-	this->lenght = 0;
-	return (*this);
+	catch (std::bad_alloc &e)
+	{
+		std::cerr << "\033[1;31mError: MALLOC\033[0m" << std::endl;
+		this->array = NULL;
+		this->lenght = 0;
+		return (*this);
+	}
 }
 
 template<typename T>
